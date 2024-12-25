@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "drf_yasg",
     "django_cleanup.apps.CleanupConfig",
     "django_filters",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
