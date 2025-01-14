@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
-
+AUTH_USER_MODEL = "account.User"
 # Application definition
 
 INSTALLED_APPS = [
@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     "django_cleanup.apps.CleanupConfig",
     "django_filters",
     "corsheaders",
+
+    # apps
+    "apps.account",
 ]
 
 MIDDLEWARE = [
