@@ -8,13 +8,12 @@ from .models import User
 class UserAdmin(BaseUserAdmin):
     list_display = (
         'id',
-        'phone',
+        'username',
         'get_full_name',
-        # 'role',
         'get_avatar',
     )
-    list_display_links = ('id', 'phone',)
-    search_fields = ('first_name', 'last_name', 'email', 'phone')
+    list_display_links = ('id', 'username',)
+    search_fields = ('first_name', 'last_name', 'email', 'username')
     filter_horizontal = ('groups', 'user_permissions')
     list_filter = ('is_staff', 'is_superuser', 'is_active', 'groups')
     ordering = ('-date_joined',)
@@ -22,7 +21,7 @@ class UserAdmin(BaseUserAdmin):
     fieldsets = (
         (None, {'fields': (
             'email',
-            'phone',
+            'username',
             'password',
         )}),
         (_('Personal info'), {'fields': (
@@ -32,7 +31,6 @@ class UserAdmin(BaseUserAdmin):
             'last_name',
         )}),
         (_('Permissions'), {'fields': (
-            # 'role',
             'is_active',
             'is_staff',
             'is_superuser',
@@ -55,7 +53,7 @@ class UserAdmin(BaseUserAdmin):
             'classes': ('wide',),
             'fields': (
                 'email',
-                'phone',
+                'username',
                 'password1',
                 'password2',
             ),

@@ -1,28 +1,22 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django_resized import ResizedImageField
-from phonenumber_field.modelfields import PhoneNumberField
 from django.utils.translation import gettext_lazy as _
 from .manager import UserNewManager
 
 
 class User(AbstractUser):
-    # CLIENT = "client"
-    # SALESMAN = "salesman"
-    # ADMIN = "admin"
-
-    # ROLE = (
-    #     (ADMIN, _("Админ")),
-    #     (CLIENT, _("Покупатель")),
-    #     (SALESMAN, _("Продавец")),
-    # )
 
     class Meta:
         verbose_name = "пользователь"
         verbose_name_plural = "пользователи"
         ordering = ("-date_joined",)
 
-    username = None
+    username = models.CharField(
+        "User",
+        unique=True,
+        max_length=150,
+    )
     avatar = ResizedImageField(
         _("аватарка"),
         size=[500, 500],
@@ -33,7 +27,6 @@ class User(AbstractUser):
         null=True,
         blank=True,
     )
-    phone = PhoneNumberField(_("номер телефона"), unique=True)
     first_name = models.CharField(
         _("first name"),
         max_length=150,
@@ -43,9 +36,8 @@ class User(AbstractUser):
         max_length=150,
     )
     email = models.EmailField(_("email address"), blank=True, null=True)
-    # role = models.CharField("роль", choices=ROLE, default=CLIENT, max_length=15)
 
-    USERNAME_FIELD = "phone"
+    USERNAME_FIELD = "username"
     REQUIRED_FIELDS = []
 
     objects = UserNewManager()
@@ -56,6 +48,5 @@ class User(AbstractUser):
 
     get_full_name.fget.short_description = _("полное имя")
 
-
     def __str__(self):
-        return f"{self.get_full_name or str(self.phone)}"
+        return f"{str(self.username) or self.get_full_name}"
