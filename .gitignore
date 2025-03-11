@@ -20,5 +20,6 @@ migrations/
 # Настройки среды разработки
 .vscode/
 .idea/
+.env
 
 static/static_root/*
