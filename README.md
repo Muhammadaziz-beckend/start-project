@@ -1,6 +1,6 @@
 
 ```bash
-git clone https://github.com/Muhammadaziz-beckend/aji-ata-beck.git .
+git clone https://github.com/Muhammadaziz-beckend/start-project.git .
 ```
 ```bash
 python3 -m venv venv
