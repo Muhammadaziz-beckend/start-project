@@ -9,3 +9,6 @@ pip install -r requirements.txt
 python manage.py makemigrations account
 nano .env
 ```
+```
+SECRET_KEY=bjf/sb-s=gbubguu448uuid4kngv05573
+```
