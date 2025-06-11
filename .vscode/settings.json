@@ -1,12 +1,14 @@
 {
     "cSpell.words": [
+        "asgi",
         "authtoken",
         "Browsable",
         "corsheaders",
         "dotenv",
+        "gbubguu",
+        "kngv",
         "makemigrations",
-        "modelfields",
-        "phonenumber",
+        "pycache",
         "redoc",
         "venv",
         "viewsets",
