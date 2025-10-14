@@ -19,9 +19,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.shortcuts import redirect
 from django.urls import path,include
+from api.v1.ysge import schema_view_v1
 
 urlpatterns = [
     path("api/v1/",include('api.v1.urls')),
+    
+    # swaggers
+    path("api/v1/swagger/", schema_view_v1.with_ui("swagger", cache_timeout=0)),
+    
     path('admin/', admin.site.urls),
     path('',lambda r: redirect('admin/')),
 ]
