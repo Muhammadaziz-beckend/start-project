@@ -1,0 +1,81 @@
+version: '3.9'
+
+services:
+  web:
+    build: .
+    command: uvicorn core.asgi:application --host 0.0.0.0 --port ${PORT_WEB}
+    volumes:
+      - .:/app
+      - ./db.sqlite3:/app/db.sqlite3   # файл монтируется напрямую
+    ports:
+      - "${PORT_WEB}:${PORT_WEB}"
+    env_file:
+      - .env
+
+
+volumes:
+  sqlite_data:
+
+
+# /// server configuration for production deployment (commented out) /// #
+# services:
+#   web:
+#     build: .
+#     container_name: django_web
+#     command: gunicorn core.wsgi:application --bind 0.0.0.0:8000 --workers 3
+#     volumes:
+#       - .:/app
+#     ports:
+#       - "${PORT_WEB}:8000"
+#     env_file:
+#       - .env
+#     depends_on:
+#       - db
+#       - redis
+
+  # db:
+  #   image: postgres:15
+    # container_name: postgres_db
+    # environment:
+    #   POSTGRES_DB: ${POSTGRES_DB}
+    #   POSTGRES_USER: ${POSTGRES_USER}
+    #   POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    # volumes:
+    #   - postgres_data:/var/lib/postgresql/data
+    # ports:
+    #   - "5432:5432"
+
+  # redis:
+  #   image: redis:7
+  #   container_name: redis_broker
+    # ports:
+      # - "6379:6379"
+
+  # celery:
+  #   build: .
+  #   container_name: celery_worker
+  #   command: celery -A core worker -l info
+  #   volumes:
+  #     - .:/app
+  #   env_file:
+  #     - .env
+  #   depends_on:
+  #     - web
+  #     - redis
+  #     - db
+
+  # celery_beat:
+  #   build: .
+  #   container_name: celery_beat
+  #   command: celery -A core beat -l info
+  #   volumes:
+  #     - .:/app
+  #   env_file:
+  #     - .env
+  #   depends_on:
+  #     - web
+  #     - redis
+  #     - db
+
+# volumes:
+#   postgres_data:

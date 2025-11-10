@@ -8,10 +8,12 @@
         "gbubguu",
         "kngv",
         "makemigrations",
+        "mbank",
         "pycache",
         "redoc",
         "venv",
         "viewsets",
-        "yasg"
+        "yasg",
+        "ysge"
     ]
 }

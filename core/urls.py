@@ -19,7 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.shortcuts import redirect
 from django.urls import path,include
-from api.v1.ysge import schema_view_v1
+from api.docs import schema_view_v1
 
 urlpatterns = [
     path("api/v1/",include('api.v1.urls')),
@@ -31,6 +31,5 @@ urlpatterns = [
     path('',lambda r: redirect('admin/')),
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
