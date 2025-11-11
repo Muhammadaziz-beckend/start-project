@@ -1,4 +1,4 @@
-<!-- 
+<!--
 ```bash
 git clone https://github.com/Muhammadaziz-beckend/start-project.git .
 ```
@@ -42,6 +42,7 @@ SECRET_KEY=bjf/sb-s=gbubguu448uuid4kngv05573
 ---
 
 ## Структура проекта
+
 ```
 
 ├── api
@@ -91,4 +92,50 @@ SECRET_KEY=bjf/sb-s=gbubguu448uuid4kngv05573
     ├── models.py
     ├── paginations.py
     └── permissions.py
+```
+
+# 🚀 Запуск проекта
+
+## 1) Создания папки
+
+```
+mkdir <name dir>
+cd <name dir>
+```
+
+## 2) клонирования из репозитории
+
+``` bash
+git clone https://github.com/Muhammadaziz-beckend/start-project.git .
+```
+
+## 3) Создания venv скачиваем зависимости из requirements.txt и делаем миграцию
+
+```bash
+python3 -m venv venv
+. venv/bin/activate
+pip install -r requirements.txt
+python manage.py makemigrations account
+python manage.py makemigrations
+python manage.py migrate
+```
+
+## 3) Создаём .env фйл 
+
+```
+nano .env
+```
+
+### └─ В .env записываем 
+
+```
+PORT_WEB=8000
+SECRET_KEY=bjf/kot/sb-s=gbubguu448uuid4kngv05572
+
+# Database
+POSTGRES_DB=db
+POSTGRES_USER=admin
+POSTGRES_PASSWORD=supper_password
+POSTGRES_HOST=db
+POSTGRES_PORT=5432
 ```
