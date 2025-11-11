@@ -1,17 +1,7 @@
-<!--
-```bash
-git clone https://github.com/Muhammadaziz-beckend/start-project.git .
+# Быстрый запуск проекта
 ```
-```bash
-python3 -m venv venv
-. venv/bin/activate
-pip install -r requirements.txt
-python manage.py makemigrations account
-nano .env
+bash <(curl -s https://raw.githubusercontent.com/Muhammadaziz-beckend/start-project/main/start.sh)
 ```
-```
-SECRET_KEY=bjf/sb-s=gbubguu448uuid4kngv05573
-``` -->
 
 # Start Project Backend Template
 
