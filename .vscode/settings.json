@@ -11,6 +11,7 @@
         "mbank",
         "pycache",
         "redoc",
+        "runserver",
         "venv",
         "viewsets",
         "yasg",

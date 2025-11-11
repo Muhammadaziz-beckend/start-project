@@ -139,3 +139,9 @@ POSTGRES_PASSWORD=supper_password
 POSTGRES_HOST=db
 POSTGRES_PORT=5432
 ```
+
+## 4) Запуск проекта
+
+```
+python mange.py runserver 8000
+```
