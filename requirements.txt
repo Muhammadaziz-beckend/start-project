@@ -17,6 +17,7 @@ jsonschema-specifications==2025.9.1
 packaging==24.2
 phonenumberslite==8.13.52
 pillow==11.1.0
+psycopg2-binary==2.9.11
 pymodbus==3.8.6
 python-decouple==3.8
 python-dotenv==1.0.1
