@@ -35,6 +35,7 @@ DB_USER=postgres
 DB_PASS=password
 DB_HOST=localhost
 DB_PORT=5432
+PORT_WEB=8000
 EOF
 
 # 5. Миграции
