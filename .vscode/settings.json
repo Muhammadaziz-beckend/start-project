@@ -9,6 +9,8 @@
         "kngv",
         "makemigrations",
         "mbank",
+        "modelfields",
+        "phonenumber",
         "pycache",
         "redoc",
         "runserver",

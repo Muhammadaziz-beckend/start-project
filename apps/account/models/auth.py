@@ -2,7 +2,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django_resized import ResizedImageField
 from django.utils.translation import gettext_lazy as _
-from .manager import UserNewManager
+from ..manager import UserNewManager
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 class User(AbstractUser):
@@ -17,6 +18,10 @@ class User(AbstractUser):
         unique=True,
         max_length=150,
     )
+    # phone = PhoneNumberField(
+    #     _("номер телефона"),
+    #     unique=True,
+    # )
     avatar = ResizedImageField(
         _("аватарка"),
         size=[500, 500],
@@ -38,6 +43,7 @@ class User(AbstractUser):
     email = models.EmailField(_("email address"), blank=True, null=True)
 
     USERNAME_FIELD = "username"
+    # USERNAME_FIELD = "phone"
     REQUIRED_FIELDS = []
 
     objects = UserNewManager()
