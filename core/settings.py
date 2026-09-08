@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     # installs
     "rest_framework",
     "rest_framework.authtoken",
+    "rest_framework_simplejwt.token_blacklist",
     "drf_yasg",
     # "drf_spectacular.apps.SpectacularConfig",
     "django_cleanup.apps.CleanupConfig",

@@ -16,13 +16,15 @@ from rest_framework import status
 # from apps.account.serializers import AuthTokenSerializer  # phone login
 from rest_framework.authtoken.serializers import AuthTokenSerializer # username login
 # from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import *
+from rest_framework.permissions import AllowAny
 
 
 
 class Login(GenericAPIView):
     serializer_class = AuthTokenSerializer
-
+    permission_classes = [AllowAny]
+    authentication_classes = []
+    
     @csrf_exempt
     def post(self, request, *args, **kwargs):
         serializer = self.serializer_class(
